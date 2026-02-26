@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            /* градиент */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-form {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-form button:hover {
+            background: linear-gradient(135deg, #fda085, #f6d365);
+        }
+
+        .login-form .register-link {
+            display: block;
+            margin-top: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .login-form .register-link:hover {
+            color: #f56c6c;
+        }
+        #green{
+            color:green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #red{
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-form">
+        <h2>Вход</h2>
+        <form action="/submit_login" method="POST">
+            <input type="text" name="username" placeholder="Имя пользователя" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Войти</button>
+        </form>
+        <a class="register-link" href="/">Ещё нет аккаунта? Регистрация</a>
+
+        
+    {% if message %}
+        {% if 'Привет' in message %}
+        <p id="green">{{ message }}</p> <!-- успех -->
+        {% else %}
+        <p id="red">{{ message }}</p> <!-- ошибка -->
+        {% endif %}
+    {% endif %}
+    </div>
+
+
+</body>
+
+</html>
