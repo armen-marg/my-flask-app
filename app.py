@@ -7,6 +7,7 @@ import re
 import dns.resolver
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 def generate_secret(length: int = 40) -> str:
     chars = string.ascii_letters + string.digits
     return "".join(random.choice(chars) for _ in range(length))
